@@ -1,3 +1,3 @@
-export interface StoredData {
-  value: string,
+export interface DBRecords {
+  value: Array<any>,
 }

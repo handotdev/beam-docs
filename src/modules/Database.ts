@@ -1,22 +1,21 @@
 import { db, port, host } from '../utils/constants';
+import { DBRecords } from 'types/Api';
 
 export class Database {
 
-  public connection: any;
-  public database: any;
+  private connection: any;
 
   constructor() {
-    this.connection = db.connect();
+    this.connection = db;
   }
 
-  public async query(args): Promise<any> {
+  public async query(args): Promise<DBRecords> {
 
-    let response: any = await db.query(args);
+    let response: Promise<any> = db.query(args, (error, result) => {
+      if (error) return false;
+      return result[0];
+    });
 
-    if (response !== undefined) {
-      return response;
-    }
-
-    return undefined;
-  }
+    return response;
+  } 
 }

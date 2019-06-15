@@ -15,7 +15,7 @@ export abstract class BaseController {
     this.executeImpl();
   }
 
-  protected jsonResponse (code: number, message: string) {
+  protected jsonResponse (code: number, message: any) {
     return this.res.status(code).json({ message });
   }
 

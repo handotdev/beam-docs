@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 
 export const host = 'localhost';
-export const port = 6379;
+export const port = 3306;
 
 export const db = mysql.createConnection({
   host: process.env.DB_HOST,
